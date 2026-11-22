@@ -195,7 +195,7 @@ def get_sleep(client: HealthClient, start_date: str, end_date: str) -> List[Dict
 
 def get_hrv(client: HealthClient, start_date: str, end_date: str) -> List[Dict[str, Any]]:
     start, end = parse_range(start_date, end_date)
-    points = client.list_points("daily-heart-rate-variability", daily_filter("dailyHeartRateVariability", start, end))
+    points = client.list_points("daily-heart-rate-variability", daily_filter("daily_heart_rate_variability", start, end))
     days = []
     for point in points:
         hrv = point["dailyHeartRateVariability"]
@@ -213,7 +213,7 @@ def get_hrv(client: HealthClient, start_date: str, end_date: str) -> List[Dict[s
 
 def get_resting_heart_rate(client: HealthClient, start_date: str, end_date: str) -> List[Dict[str, Any]]:
     start, end = parse_range(start_date, end_date)
-    points = client.list_points("daily-resting-heart-rate", daily_filter("dailyRestingHeartRate", start, end))
+    points = client.list_points("daily-resting-heart-rate", daily_filter("daily_resting_heart_rate", start, end))
     days = []
     for point in points:
         rhr = point["dailyRestingHeartRate"]
